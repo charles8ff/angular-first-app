@@ -25,4 +25,18 @@ export class TodosComponent implements OnInit {
     ]
   }
 
+  toggleDone(id: number) {
+    this.todos.map((elem,index)=>{
+      if (index == id) elem.completed = !elem.completed; 
+      //this loops for the task with id and changes status when found
+      return elem;
+    })
+  }
+
+  deleteToDo(id: number){
+    this.todos = this.todos.filter((elem, index)=> index !== id);
+    //this returns all but the one that matches
+  }
+
+
 }
