@@ -10,6 +10,8 @@ export class TodosComponent implements OnInit {
 
   todos: Todo[] = [];
 
+  inputTodo:string = "";
+
   constructor() { }
 
   ngOnInit(): void {
@@ -38,5 +40,12 @@ export class TodosComponent implements OnInit {
     //this returns all but the one that matches
   }
 
+  addToDo(){
+    this.todos.push({
+      content: this.inputTodo,
+      completed: false
+    });
+    this.inputTodo='';//clear input from form
+  }
 
 }
